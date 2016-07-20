@@ -16,6 +16,17 @@ Revision history for Perl extension App::Sqitch
        Bréchemier for the "time travel" analogy and wording.
      - Fixed an "uninitialized value" error when creating a registry database
        on Windows. Thanks to Steven C. Buttgereit for the report (Issue #289).
+     - Fixed editor selection to prioritize the `core.editor` configuration
+       variable over the `$EDITOR` environment variable. The `$SQITCH_EDITOR`
+       environment variable still trumps all. Thanks to Jim Nasby for the pull
+       request (#296).
+     - Added detection of the `$VISUAL` environment variable to Editor
+       selection, prioritzed after the `core.editor` configuration variable
+       and before the `$EDITOR` environment variable. Thanks to Jim Nasby for
+       the pull request (#296).
+     - Use DateTime->set_locale instead of ->set to set the locale. Using
+       ->set may actually change the local time unintentionally. Patch by Dave
+       Rolsky. GitHub PR #304.
 
 0.9994 2016-01-08T19:46:43Z
      - Reduced minimum required MySQL engine from 5.1.0 to 5.0.0. Thanks to

@@ -71,7 +71,7 @@ Let's have a look at F<sqitch.conf>:
   # [engine "mysql"]
   	# target = db:mysql:
   	# registry = sqitch
-  	# client = /usr/local/mysql/bin/mysql
+  	# client = mysql
 
 Good, it picked up on the fact that we're creating changes for the MySQL
 engine, thanks to the C<--engine mysql> option, and saved it to the file.
@@ -925,7 +925,7 @@ Edit F<verify/flips.sql>:
     FROM flipr.flips
    WHERE 0;
 
-  COMMIT;
+  ROLLBACK;
 
 And edit F<revert/flips.sql>:
 

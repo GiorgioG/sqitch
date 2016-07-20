@@ -113,7 +113,7 @@ Let's have a look at F<sqitch.conf>:
   # [engine "oracle"]
   	# target = db:oracle:
   	# registry = 
-  	# client = /usr/local/instantclient_11_2/sqlplus
+  	# client = sqlplus
 
 Good, it picked up on the fact that we're creating changes for the Oracle
 engine, thanks to the C<-engine oracle> option, and saved it to the file.
@@ -511,7 +511,7 @@ from the table with a false C<WHERE> clause. Add this to F<verify/users.sql>:
 
   SELECT nickname, password, timestamp
     FROM flipr.users
-   WHERE 1 = 1;
+   WHERE 0 = 1;
 
 Now for the revert script: all we have to do is drop the table. Add this to
 F<revert/users.sql>:
